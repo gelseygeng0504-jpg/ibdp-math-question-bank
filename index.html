@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AA SL Question Bank</title>
+  <!-- KaTeX is stored locally so math works offline. -->
+  <link rel="stylesheet" href="katex/katex.min.css?v=topic2-paper1-import-images">
+  <!-- This file connects the page to the local CSS file. No internet is needed. -->
+  <link rel="stylesheet" href="style.css?v=header-balance-20260907">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true">AA</div>
+        <div class="brand-block">
+          <h1>IBDP Mathematics</h1>
+          <p class="brand-kicker">Analysis &amp; Approaches SL · Question Bank</p>
+        </div>
+      </div>
+
+      <div class="header-meta">
+        <div class="creator-block">
+          <p class="creator-name">Created by Gelsey Geng</p>
+          <p class="creator-school">Mathematics Department · Beijing Huijia Private School</p>
+        </div>
+        <div class="header-status">
+          <span class="offline-status">Offline</span>
+          <p class="school-use-notice">For school student learning only</p>
+          <p class="demo-notice">Demo only · Not for commercial use · For display purposes only</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="study-shell">
+    <aside class="index-panel" aria-label="Question index">
+      <div class="toolbar index-toolbar" aria-label="Study set filters">
+        <div class="filter-control topic-filter-control">
+          <label for="topic-filter">Question Type</label>
+          <select id="topic-filter">
+            <option value="All">All</option>
+          </select>
+          <button class="filter-clear" type="button" data-target="#topic-filter" aria-label="Clear topic filter" hidden>×</button>
+        </div>
+
+        <div class="filter-choice-field">
+          <span class="filter-group-label">Paper Type</span>
+          <div class="filter-choice-group">
+            <label class="filter-choice">
+              <input type="checkbox" name="paper-filter" value="Paper 1">
+              <span>Paper 1</span>
+            </label>
+            <label class="filter-choice">
+              <input type="checkbox" name="paper-filter" value="Paper 2">
+              <span>Paper 2</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-choice-field difficulty-choice-field">
+          <span class="filter-group-label">Difficulty Type</span>
+          <div class="filter-choice-group">
+            <label class="filter-choice">
+              <input type="checkbox" name="difficulty-filter" value="Easy">
+              <span>Easy</span>
+            </label>
+            <label class="filter-choice">
+              <input type="checkbox" name="difficulty-filter" value="Medium">
+              <span>Medium</span>
+            </label>
+            <label class="filter-choice">
+              <input type="checkbox" name="difficulty-filter" value="Hard">
+              <span>Hard</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-control go-to-question-control">
+          <label for="go-to-question">Go to Question</label>
+          <select id="go-to-question" aria-label="Go to Question">
+            <option value="">—</option>
+          </select>
+        </div>
+
+        <div class="index-access">
+          <button id="question-index-toggle" class="question-index-toggle" type="button" aria-expanded="false" aria-controls="question-index-popover">
+            <span>Question Index</span>
+            <strong id="current-question-indicator">0 of 0</strong>
+          </button>
+        </div>
+      </div>
+
+      <div id="question-index-popover" class="question-index-popover" hidden>
+        <div class="panel-heading">
+          <div>
+            <h2>Question Index</h2>
+            <p>Choose a question or select several to export.</p>
+          </div>
+          <div class="panel-actions">
+            <button id="selection-toggle" class="selection-toggle" type="button">Select</button>
+          </div>
+        </div>
+        <div id="question-list" class="result-list"></div>
+        <div id="export-bar" class="export-bar" hidden>
+          <button id="select-all-current" class="select-all-button" type="button">Select all</button>
+          <button class="export-button" type="button" disabled>Export</button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="focus-panel" aria-label="Focused question view">
+      <article id="study-view" class="study-view"></article>
+    </section>
+  </main>
+
+  <div id="answer-modal" class="answer-modal" hidden>
+    <div class="answer-modal-panel" role="dialog" aria-modal="true" aria-labelledby="answer-modal-title">
+      <div class="answer-modal-header">
+        <h2 id="answer-modal-title">Question</h2>
+        <h3 id="answer-modal-answer-label" class="answer-modal-answer-heading">Answer / Markscheme</h3>
+        <button id="answer-modal-close" class="answer-modal-close" type="button" aria-label="Close answer">×</button>
+      </div>
+      <div class="answer-modal-body">
+        <section class="answer-modal-pane answer-modal-question-pane" aria-label="Question">
+          <div id="answer-modal-question" class="answer-modal-question"></div>
+        </section>
+        <section class="answer-modal-pane answer-modal-answer-pane" aria-labelledby="answer-modal-answer-label">
+          <div id="answer-modal-answer" class="answer-modal-answer"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div id="marked-modal" class="marked-modal" hidden>
+    <div class="marked-modal-panel" role="dialog" aria-modal="true" aria-labelledby="marked-modal-title">
+      <div class="marked-modal-header">
+        <div>
+          <h2 id="marked-modal-title">Marked Questions</h2>
+          <p id="marked-modal-summary" class="marked-modal-summary">0 marked</p>
+        </div>
+        <button id="marked-modal-close" class="marked-modal-close" type="button" aria-label="Close marked questions">×</button>
+      </div>
+      <div id="marked-modal-list" class="marked-modal-list"></div>
+    </div>
+  </div>
+
+  <div id="export-modal" class="export-modal" hidden>
+    <div class="export-modal-panel" role="dialog" aria-modal="true" aria-labelledby="export-modal-title">
+      <h2 id="export-modal-title">Review Selected Questions</h2>
+      <p id="export-modal-summary" class="export-modal-summary"></p>
+      <div class="export-modal-body">
+        <div id="export-modal-list" class="export-modal-list"></div>
+        <div id="export-modal-preview" class="export-modal-preview"></div>
+      </div>
+      <div class="export-modal-options">
+        <label class="export-filename-field">
+          <span>File name</span>
+          <input id="export-file-name" type="text" autocomplete="off">
+        </label>
+        <label class="export-option">
+          <input id="include-answers" type="checkbox">
+          <span>Include answers</span>
+        </label>
+      </div>
+      <div class="export-modal-actions">
+        <button id="export-cancel" type="button">Cancel</button>
+        <button id="export-pdf" type="button">Export PDF</button>
+        <button id="export-word" type="button">Export Word</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- These local JavaScript files will hold and display the question data. -->
+  <script src="data.js?v=all-local-import-20260907"></script>
+  <script src="katex/katex.min.js?v=topic2-paper1-import-images"></script>
+  <script src="katex/auto-render.min.js?v=topic2-paper1-import-images"></script>
+  <script src="math-renderer.js?v=topic2-paper1-import-images"></script>
+  <script src="script.js?v=hide-exam-years-2023-2025"></script>
+</body>
+</html>
