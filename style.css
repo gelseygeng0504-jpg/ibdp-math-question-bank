@@ -3187,10 +3187,11 @@ body.answer-modal-open {
 /* Direct number-only question jump. */
 .index-toolbar {
   grid-template-columns:
-    minmax(250px, 1.35fr)
-    minmax(250px, 1fr)
-    minmax(360px, 1.3fr)
-    minmax(170px, .65fr);
+    minmax(180px, 1fr)
+    minmax(180px, 1fr)
+    minmax(250px, 1.2fr)
+    minmax(300px, 1.35fr)
+    minmax(170px, .75fr);
 }
 
 .go-to-question-control select {
