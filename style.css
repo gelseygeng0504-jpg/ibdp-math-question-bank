@@ -2993,7 +2993,7 @@ body {
 }
 
 .index-toolbar .year-filter-control {
-  max-width: 260px;
+  max-width: none;
 }
 
 .index-toolbar .paper-filter-field {
@@ -3001,7 +3001,7 @@ body {
 }
 
 .index-toolbar .difficulty-choice-field {
-  max-width: 500px;
+  max-width: none;
 }
 
 .index-toolbar .filter-control > label,
@@ -3191,11 +3191,11 @@ body.answer-modal-open {
 /* Direct number-only question jump. */
 .index-toolbar {
   grid-template-columns:
-    minmax(180px, 1fr)
-    minmax(180px, 1fr)
-    minmax(250px, 1.2fr)
-    minmax(300px, 1.35fr)
-    minmax(170px, .75fr);
+    minmax(220px, 1.1fr)
+    minmax(140px, .55fr)
+    minmax(280px, 1.25fr)
+    minmax(420px, 1.85fr)
+    minmax(190px, .85fr);
 }
 
 .go-to-question-control select {
