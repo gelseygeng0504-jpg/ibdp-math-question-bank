@@ -3002,7 +3002,7 @@ body {
 
 .index-toolbar .difficulty-choice-field {
   max-width: none;
-  width: calc(100% - 38px);
+  width: 100%;
 }
 
 .index-toolbar .filter-control > label,
@@ -3197,12 +3197,18 @@ body.answer-modal-open {
 /* Direct number-only question jump. */
 .index-toolbar {
   grid-template-columns:
-    minmax(220px, 1.05fr)
-    minmax(188px, .75fr)
-    minmax(280px, 1.25fr)
-    minmax(402px, 1.45fr)
-    minmax(190px, .9fr);
+    minmax(200px, 1.05fr)
+    minmax(220px, .9fr)
+    minmax(280px, 1.2fr)
+    minmax(370px, 1.55fr)
+    minmax(200px, .9fr);
   column-gap: 14px;
+}
+
+.year-filter-control select {
+  min-width: 90px;
+  padding-left: 8px;
+  padding-right: 24px;
 }
 
 .go-to-question-control select {
@@ -3212,7 +3218,7 @@ body.answer-modal-open {
   font-variant-numeric: tabular-nums;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .index-toolbar {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
