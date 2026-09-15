@@ -1702,7 +1702,7 @@ body {
 }
 
 .index-toolbar {
-  grid-template-columns: minmax(250px, 35fr) minmax(270px, 25fr) minmax(350px, 40fr);
+  grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr) minmax(250px, 1.35fr) minmax(300px, 1.55fr) minmax(180px, 1fr);
 }
 
 .filter-choice-group {
