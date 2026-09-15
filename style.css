@@ -3000,6 +3000,10 @@ body {
   max-width: 420px;
 }
 
+.index-toolbar .difficulty-choice-field {
+  max-width: 500px;
+}
+
 .index-toolbar .filter-control > label,
 .index-toolbar .filter-group-label {
   padding-right: 12px;
