@@ -3002,6 +3002,7 @@ body {
 
 .index-toolbar .difficulty-choice-field {
   max-width: none;
+  width: calc(100% - 38px);
 }
 
 .index-toolbar .filter-control > label,
@@ -3036,6 +3037,10 @@ body {
   .index-toolbar .filter-control,
   .index-toolbar .filter-choice-field {
     padding: 10px 14px;
+  }
+
+  .index-toolbar .difficulty-choice-field {
+    width: 100%;
   }
 
   .index-toolbar .filter-control > label,
@@ -3214,6 +3219,7 @@ body.answer-modal-open {
 
   .difficulty-choice-field {
     grid-column: auto;
+    width: 100%;
   }
 }
 
