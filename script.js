@@ -39,6 +39,7 @@ let exportReviewQuestions = [];
 let exportReviewIncludedIds = new Set();
 let activeExportReviewQuestionId = "";
 const topicFilter = document.querySelector("#topic-filter");
+const yearFilter = document.querySelector("#year-filter");
 const goToQuestionSelect = document.querySelector("#go-to-question");
 const paperFilterInputs = document.querySelectorAll('input[name="paper-filter"]');
 const difficultyFilterInputs = document.querySelectorAll('input[name="difficulty-filter"]');
@@ -623,6 +624,7 @@ function openQuestionById(questionId) {
 
   if (targetIndex === -1) {
     topicFilter.value = "All";
+    yearFilter.value = "All";
     paperFilterInputs.forEach(function(input) {
       input.checked = false;
     });
@@ -1410,6 +1412,7 @@ function exportSelectedQuestionsToWord() {
 function getSelectedFilters() {
   return {
     topic: topicFilter.value,
+    year: yearFilter.value,
     papers: Array.from(paperFilterInputs).filter(function(input) {
       return input.checked;
     }).map(function(input) {
@@ -1428,10 +1431,11 @@ function getFilteredQuestions() {
 
   return visibleQuestions.filter(function(question) {
     const topicMatches = selected.topic === "All" || question.topic === selected.topic;
+    const yearMatches = selected.year === "All" || String(question.examYear) === selected.year;
     const paperMatches = selected.papers.length === 0 || selected.papers.includes(question.paper);
     const difficultyMatches = selected.difficulties.length === 0 || selected.difficulties.includes(question.difficulty);
 
-    return topicMatches && paperMatches && difficultyMatches;
+    return topicMatches && yearMatches && paperMatches && difficultyMatches;
   });
 }
 
@@ -2019,6 +2023,11 @@ function renderQuestions() {
 }
 
 addOptions(topicFilter, getUniqueValues("topic"));
+addOptions(yearFilter, getUniqueValues("examYear").filter(function(value) {
+  return value !== null && value !== undefined && value !== "";
+}).sort(function(a, b) {
+  return Number(a) - Number(b);
+}));
 
 visibleQuestions.forEach(function(question) {
   const option = document.createElement("option");
@@ -2144,6 +2153,7 @@ exportModal.addEventListener("click", function(event) {
 });
 
 topicFilter.addEventListener("change", renderQuestions);
+yearFilter.addEventListener("change", renderQuestions);
 paperFilterInputs.forEach(function(input) {
   input.addEventListener("change", renderQuestions);
 });
