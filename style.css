@@ -2992,6 +2992,10 @@ body {
   background: #ffffff;
 }
 
+.index-toolbar .year-filter-control {
+  max-width: 260px;
+}
+
 .index-toolbar .filter-control > label,
 .index-toolbar .filter-group-label {
   padding-right: 12px;
