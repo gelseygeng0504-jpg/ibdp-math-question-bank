@@ -2996,6 +2996,10 @@ body {
   max-width: 260px;
 }
 
+.index-toolbar .paper-filter-field {
+  max-width: 420px;
+}
+
 .index-toolbar .filter-control > label,
 .index-toolbar .filter-group-label {
   padding-right: 12px;
