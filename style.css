@@ -2997,7 +2997,7 @@ body {
 }
 
 .index-toolbar .paper-filter-field {
-  max-width: 420px;
+  max-width: none;
 }
 
 .index-toolbar .difficulty-choice-field {
@@ -3028,7 +3028,8 @@ body {
 }
 
 .index-toolbar .difficulty-choice-field .filter-choice-group {
-  gap: 28px;
+  justify-content: space-between;
+  gap: 18px;
 }
 
 @media (max-width: 1040px) {
@@ -3191,11 +3192,12 @@ body.answer-modal-open {
 /* Direct number-only question jump. */
 .index-toolbar {
   grid-template-columns:
-    minmax(220px, 1.1fr)
-    minmax(140px, .55fr)
+    minmax(220px, 1.05fr)
+    minmax(150px, .65fr)
     minmax(280px, 1.25fr)
-    minmax(420px, 1.85fr)
-    minmax(190px, .85fr);
+    minmax(440px, 1.55fr)
+    minmax(190px, .9fr);
+  column-gap: 14px;
 }
 
 .go-to-question-control select {
