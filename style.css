@@ -1693,7 +1693,8 @@ body {
 .header-status .demo-notice {
   max-width: 310px;
   color: #8b98a3;
-  font-size: 8px;
+  font-size: 7.5px;
+  white-space: nowrap;
   font-weight: 600;
   letter-spacing: .045em;
   line-height: 1.25;
